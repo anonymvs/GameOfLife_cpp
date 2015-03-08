@@ -2,7 +2,7 @@
 #define HEADER_H_INCLUDED
 
 /// MENU
-// Men¸ szerkezete
+// Men√º szerkezete
 enum main_menu {
     area = '1',
     base = '2',
@@ -11,14 +11,20 @@ enum main_menu {
     quit = '5'
 };
 
-//MEN‹ SZERKEZETE
+//MEN√ú SZERKEZETE
 //mainMenu
 void mainMenu();
-//setup
+//setup.cpp
+void clrscr();
+int intToStr(std::string str);
+//ter√ºlet
 void areaf();
+void menu_text();
+//kezd≈ëpontok
 void basef();
+//bet√∂lt√©s
 void loadf();
-//algorithm
+//algorithm.cpp
 void startf();
 void quitf();
 
@@ -50,7 +56,7 @@ public:
     Cell** getPointerField() const;
 };
 
-//…L’ SEJTEK LIST¡JA
+//√âL√ï SEJTEK LIST√ÅJA
 class CellList {
 private:
     int n;
