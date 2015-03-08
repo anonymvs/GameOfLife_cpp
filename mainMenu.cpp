@@ -14,7 +14,6 @@ void mainMenu() {
             menu = main_menu(x[0]);
             switch(menu) {
             case(area):
-                cout << "a nullat irtam be";
                 areaf();
                 break;
             case(base):

@@ -12,6 +12,13 @@ Field::Field(int a, int b) {
     }
 }
 
+Field::~Field() {
+    for(int i = 0; i < this->a; i++) {
+        delete[] field[i];
+    }
+    delete[] this->field;
+}
+
 int Field::getA() const {
     return this->a;
 }

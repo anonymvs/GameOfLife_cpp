@@ -51,6 +51,7 @@ private:
     Cell **field;
 public:
     Field(int a = 0, int b = 0);
+    ~Field();
     int getA() const;
     int getB() const;
     Cell** getPointerField() const;
