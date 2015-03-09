@@ -9,6 +9,10 @@ Cell::Cell(int x, int y, bool b) {
     state = 0;
 }
 
+Cell::~Cell() {
+    std::cout << "I am the deconstructor" << std::endl;
+}
+
 int Cell::getX() const {
     return this->x;
 }

@@ -56,6 +56,7 @@ Field beolv() {
             } else {
                 b = intToStr(str);
                 Field ans(a, b);
+                fieldCout(ans);
                 return ans;
             }
         }
@@ -70,9 +71,10 @@ Field beolv() {
 //terület beállítása
 void areaf() {
     clrscr();
-    Field def;
     cout << "Mekkora legyen a palya terulete?" << endl;
-    def = beolv();
+    Field def = beolv();
+    fieldCout(def);
+    cout << endl;
     for(int i = 0; i < def.getB(); i++) {
         for(int j = 0; j < def.getA(); j++)
             cout << def.getPointerField()[i][j].getBool();

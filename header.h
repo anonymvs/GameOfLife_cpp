@@ -36,6 +36,7 @@ private:
     bool state;
 public:
     Cell(int x = 0, int y = 0, bool b = false);
+    ~Cell();
     int getX() const;
     int getY() const;
     bool getBool() const;
@@ -55,7 +56,10 @@ public:
     int getA() const;
     int getB() const;
     Cell** getPointerField() const;
+    //Field operator=(const Field& a) const;
 };
+
+void fieldCout(Field &a);
 
 //ÉLÕ SEJTEK LISTÁJA
 class CellList {
