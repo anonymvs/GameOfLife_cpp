@@ -7,6 +7,7 @@ using namespace std;
 void clrscr() {
     system("cls");
 }
+
 // a 10-et az a-adik hatványára emeli
 int hatvany(int a) {
     int ans = 1;
@@ -15,6 +16,7 @@ int hatvany(int a) {
     }
     return ans;
 }
+
 //intet stringé alakít
 int intToStr(string str) {
     int ans = 0, i = 0;
@@ -23,11 +25,12 @@ int intToStr(string str) {
     }
     int meret = i;
     for(int j = 0; j < meret; j++) {
-        ans += ((int)str[j] - '0') * hatvany(i-1);
+        ans += ((int)str[j] - '0') * hatvany(i - 1);
         i--;
     }
     return ans;
 }
+
 // jó e a bemenet
 int valid(string str) {
         int i = 0;
@@ -40,6 +43,7 @@ int valid(string str) {
         }
         return validation;
 }
+
 //hibás bemenetek kezelése, konstruktor a pályához
 Field beolv() {
     string str;
