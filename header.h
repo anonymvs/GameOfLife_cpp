@@ -43,6 +43,7 @@ public:
     void setX(int x);
     void setY(int y);
     void setBool(bool b);
+    Cell& operator=(const Cell& a);
 };
 
 //PALYA
@@ -51,12 +52,16 @@ private:
     int a, b;
     Cell **field;
 public:
-    Field(int a = 0, int b = 0);
+    Field(int a = 0, int b = 0);            //constructor
+    Field(const Field& nf);                 //constructor copy
     ~Field();
     int getA() const;
     int getB() const;
+    void setA(int a);
+    void setB(int b);
+    void setPointerField(Cell **p);
     Cell** getPointerField() const;
-    //Field operator=(const Field& a) const;
+    Field& operator=(const Field& a);
 };
 
 void fieldCout(Field &a);

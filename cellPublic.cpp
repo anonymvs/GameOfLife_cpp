@@ -10,7 +10,7 @@ Cell::Cell(int x, int y, bool b) {
 }
 
 Cell::~Cell() {
-    std::cout << "I am the deconstructor" << std::endl;
+    //std::cout << "I am the deconstructor" << std::endl;
 }
 
 int Cell::getX() const {
@@ -37,3 +37,7 @@ void Cell::setBool(bool b) {
     state = b;
 }
 
+Cell& Cell::operator=(const Cell& a) {
+    Cell uj(a.x, a.y, a.state);
+    return uj;
+}

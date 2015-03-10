@@ -76,7 +76,7 @@ Field beolv() {
 void areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
-    Field def = beolv();
+    Field def(0,0);
     fieldCout(def);
     cout << endl;
     for(int i = 0; i < def.getB(); i++) {
