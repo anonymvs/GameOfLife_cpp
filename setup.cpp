@@ -45,7 +45,7 @@ int valid(string str) {
 }
 
 //hibás bemenetek kezelése, konstruktor a pályához
-Field beolv() {
+Field beolv(Field& p) {
     string str;
     int a, b;
     bool isset = false;
@@ -59,7 +59,7 @@ Field beolv() {
                 isset = true;
             } else {
                 b = intToStr(str);
-                Field ans(a, b);
+                p.setA();
                 fieldCout(ans);
                 return ans;
             }
