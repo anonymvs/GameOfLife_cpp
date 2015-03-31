@@ -1,5 +1,6 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
+#include "field.h"
 
 /// MENU
 // Menü szerkezete
@@ -18,7 +19,7 @@ void mainMenu();
 void clrscr();
 int intToStr(std::string str);
 //terület
-void areaf();
+Field areaf();
 void menu_text();
 //kezdőpontok
 void basef();
@@ -30,5 +31,6 @@ void quitf();
 
 ///GLOBÁLIS FÜGGVÉNYEK
 int beolv();
+void kiir(const Field& f);
 
 #endif // HEADER_H_INCLUDED

@@ -1,11 +1,13 @@
 #include <iostream>
 #include "header.h"
+#include "field.h"
 
 using namespace std;
 
 void mainMenu() {
     main_menu menu;
     string x;
+    Field baseField;
     menu_text();
     while(getline(cin, x) && x[0] != '5') {
         if (x[0] > '5' || x[0] < '0' || x.length() != 1) {
@@ -14,7 +16,7 @@ void mainMenu() {
             menu = main_menu(x[0]);
             switch(menu) {
             case(area):
-                areaf();
+                baseField = areaf();
                 break;
             case(base):
                 basef();

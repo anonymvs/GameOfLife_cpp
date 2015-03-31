@@ -56,14 +56,25 @@ int beolv() {
     return intToStr(x);
 }
 
+//kiírás: Kiírja a pályát.
+void kiir(Field& f) {
+    for (int i = 0; i < f.getY(); ++i) {
+        for (int j = 0; j < f.getX(); ++j) {
+            cout << f.getP()[i][j].getB();
+        }
+        cout << endl;
+    }
+}
 //terület beállítása
-void areaf() {
+Field areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
     cout << "Szelesseg: ";
     int x = beolv();
     cout << "Magassag: ";
     int y = beolv();
+    Field baseField(x, y);
+    kiir(baseField);
     menu_text();
 }
 

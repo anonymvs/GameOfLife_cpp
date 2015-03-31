@@ -16,9 +16,13 @@ class Field {
     int x, y;
     Cell **p;
 public:
+    Field() : x(0), y(0), p(NULL) {};
     Field(int x, int y);
     Field(const Field&);
     ~Field();
+    int getX();
+    Cell** getP();
+    int getY();
     Field& operator=(const Field&);
 };
 

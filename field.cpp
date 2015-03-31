@@ -36,6 +36,19 @@ Field::~Field() {
     }
     delete [] p;
 }
+
+int Field::getX() {
+    return x;
+}
+
+Cell** Field::getP() {
+    return p;
+}
+int Field::getY() {
+    return y;
+}
+
+
 Field& Field::operator=(const Field &arg) {
     for (int i = 0; i < this->y; ++i) {
         delete [] p[i];
