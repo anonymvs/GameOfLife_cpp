@@ -34,7 +34,7 @@ int intToStr(string str) {
 }
 
 // jó e a bemenet
-int valid(string str) {
+bool valid(string str) {
       int i = 0;
       bool validation = true;
       while (str[i] != '\0') {
@@ -46,22 +46,24 @@ int valid(string str) {
       return validation;
 }
 
-//beovlasás
+//beovlasás: Beolvas egy stringet és visszaadja az értékét ha szám
 int beolv() {
+    bool loop = true;
     string x;
-    while(getline(cin, x) && x[0] != '5') {
-        if (x[0] < '0') {
-            cout << "Non existing sub menu: " << x << endl;
-        } else {
-
-        }
+    while(getline(cin, x) && !valid(x)) {
+        cout << "Invalid input" << endl;
+    }
+    return intToStr(x);
 }
 
 //terület beállítása
 void areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
-    beolv();
+    cout << "Szelesseg: ";
+    int x = beolv();
+    cout << "Magassag: ";
+    int y = beolv();
     menu_text();
 }
 
