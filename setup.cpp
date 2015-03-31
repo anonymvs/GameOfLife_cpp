@@ -1,14 +1,16 @@
 #include <iostream>
 #include <stdlib.h>
 #include "header.h"
+#include "field.h"
 
 using namespace std;
 
+//k√©perny≈ë t√∂rl√©se
 void clrscr() {
     system("cls");
 }
 
-// a 10-et az a-adik hatv·ny·ra emeli
+// a 10-et az a-adik hatv√°ny√°ra emeli
 int hatvany(int a) {
     int ans = 1;
     for(int i = 0; i < a; i++) {
@@ -17,7 +19,7 @@ int hatvany(int a) {
     return ans;
 }
 
-//intet stringÈ alakÌt
+//intet string√© alak√≠t
 int intToStr(string str) {
     int ans = 0, i = 0;
     while (str[i] != '\0') {
@@ -31,59 +33,35 @@ int intToStr(string str) {
     return ans;
 }
 
-// jÛ e a bemenet
+// j√≥ e a bemenet
 int valid(string str) {
-        int i = 0;
-        bool validation = true;
-        while (str[i] != '\0') {
-            if (str[i] < '0' || str[i] > '9') {
-                validation = false;
-            }
-            i++;
+      int i = 0;
+      bool validation = true;
+      while (str[i] != '\0') {
+        if (str[i] < '0' || str[i] > '9') {
+          validation = false;
         }
-        return validation;
+        i++;
+      }
+      return validation;
 }
 
-//hib·s bemenetek kezelÈse, konstruktor a p·ly·hoz
-Field beolv(Field& p) {
-    string str;
-    int a, b;
-    bool isset = false;
-    cout << "Szelesseg: ";
-    while(getline(cin, str)) {
-        if(!valid(str)) {
-            cout << "Invalid input: " << str << endl;
+//beovlas√°s
+int beolv() {
+    string x;
+    while(getline(cin, x) && x[0] != '5') {
+        if (x[0] < '0') {
+            cout << "Non existing sub menu: " << x << endl;
         } else {
-            if (!isset) {
-                a = intToStr(str);
-                isset = true;
-            } else {
-                b = intToStr(str);
-                p.setA();
-                fieldCout(ans);
-                return ans;
-            }
+
         }
-        if (!isset) {
-            cout << "Szelesseg: ";
-        } else {
-            cout << "Magassag: ";
-        }
-    }
 }
 
-//ter¸let be·llÌt·sa
+//ter√ºlet be√°ll√≠t√°sa
 void areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
-    Field def(0,0);
-    fieldCout(def);
-    cout << endl;
-    for(int i = 0; i < def.getB(); i++) {
-        for(int j = 0; j < def.getA(); j++)
-            cout << def.getPointerField()[i][j].getBool();
-        cout << endl;
-    }
+    beolv();
     menu_text();
 }
 

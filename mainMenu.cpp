@@ -23,10 +23,10 @@ void mainMenu() {
                 loadf();
                 break;
             case(start):
-                startf();
+                //startf();
                 break;
             case(quit):
-                quitf();
+                //quitf();
                 break;
             }
         }
@@ -35,7 +35,7 @@ void mainMenu() {
 
 void menu_text() {
     cout << "--- MENU ---" << endl;
-    cout << ":: Kerem irja be az on altal valasztott menupont szamat::" << endl;
+    cout << ":: Kerem irja be az on altal valasztott menupont szamat ::" << endl;
     cout << "1 - Jatekter meretenek megadasa" << endl;
     cout << "2 - Kezdo koordinatak leosztasa" << endl;
     cout << "3 - Szimulacio betoltese fajlbol" << endl;

@@ -28,5 +28,7 @@ void loadf();
 void startf();
 void quitf();
 
+///GLOBÁLIS FÜGGVÉNYEK
+int beolv();
 
 #endif // HEADER_H_INCLUDED
