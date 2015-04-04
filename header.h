@@ -5,6 +5,7 @@
 /// MENU
 // Menü szerkezete
 enum main_menu {
+    full = '0',
     area = '1',
     base = '2',
     load = '3',
@@ -19,10 +20,12 @@ void mainMenu();
 void clrscr();
 int intToStr(std::string str);
 //terület
-Field areaf();
-void menu_text();
+Field& areaf();
+void menu_text(char c);
 //kezdőpontok
-void basef();
+void basef(Field&);
+void manual(Field&);
+void random(Field&);
 //betöltés
 void loadf();
 //algorithm.cpp

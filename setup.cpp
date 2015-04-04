@@ -1,5 +1,6 @@
 #include <iostream>
-#include <stdlib.h>
+#include <cstdlib>
+#include <ctime>
 #include "header.h"
 #include "field.h"
 
@@ -66,7 +67,7 @@ void kiir(Field& f) {
     }
 }
 //terület beállítása
-Field areaf() {
+Field& areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
     cout << "Szelesseg: ";
@@ -74,12 +75,65 @@ Field areaf() {
     cout << "Magassag: ";
     int y = beolv();
     Field baseField(x, y);
-    kiir(baseField);
-    menu_text();
+    cout << baseField;
+    return baseField;
 }
 
-void basef() {
+//kezdő sejtek lerakása
+void basef(Field &baseField) {
+    clrscr();
+    cout << "A jatekter:" << endl;
+    cout << baseField << endl;
+    cout << endl << "1 - Jatekter megadasas sejtenkent, koordinatak beirasaval." << endl;
+    cout << "2 - Jatekter veletlenszeru megadasa" << endl;
+    string x;
+    bool loop = true;
+    while( loop && getline(cin, x)) {
+        if (x[0] > '2' || x[0] < '1' || x.length() != 1) {
+            cout << "Invalid input: " << x << endl;
+        } else {
+            loop = false;
+        }
+    }
+    if(x[0] == '1') {
+        manual(baseField);
+    } else {
+        random(baseField);
+    }
+}
 
+void manual(Field &arg) {
+    clrscr();
+    cout << "A jatekter:" << endl;
+    cout << arg << endl;
+    cout << "Kerem adja meg a koordinatakat" << endl;
+    string s;
+    while(s[0] != 'N' || s[0] != 'n') {
+        cout << "x koordinata: ";
+        int x = beolv();
+        cout << "y koordinata: ";
+        int y = beolv();
+        arg.getP()[y][x].setB(true);
+        cout << "Tovabb? Y/N" << endl;
+        bool loop = true;
+        while(loop && getline(cin, s) ) {
+            if (s[0] != 'Y' || s[0] != 'y' || s[0] != 'N' || s[0] != 'n') {
+                loop = false;
+            } else {
+                cout << "Invalid input: " << s << endl;
+            }
+        }
+    }
+    clrscr();
+    cout << arg << endl;
+}
+
+void random(Field &arg) {
+    srand(time(0));
+    rand();
+    for(int i = 0; i < ((arg.getX * arg.getY)/3); ++i)
+        arg.p[(rand() % arg.getY)][(rand() % arg.getX)].setB(true);
+    cout << arg;
 }
 
 void loadf() {

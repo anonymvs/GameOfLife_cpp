@@ -9,7 +9,11 @@ public:
     Cell(int x, int y, bool b);
     Cell(const Cell&);
     ~Cell();
+    void setX(int a);
+    void setY(int a);
+    void setB(bool x);
     bool getB();
+    Cell& operator=(const Cell&);
 };
 
 class Field {
@@ -24,6 +28,7 @@ public:
     Cell** getP();
     int getY();
     Field& operator=(const Field&);
+    friend std::ostream& operator<<(std::ostream&, const Field f);
 };
 
 #endif // FIELD_H_INCLUDED
