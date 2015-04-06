@@ -49,7 +49,6 @@ bool valid(string str) {
 
 //beovlasás: Beolvas egy stringet és visszaadja az értékét ha szám
 int beolv() {
-    bool loop = true;
     string x;
     while(getline(cin, x) && !valid(x)) {
         cout << "Invalid input" << endl;
@@ -131,8 +130,8 @@ void manual(Field &arg) {
 void random(Field &arg) {
     srand(time(0));
     rand();
-    for(int i = 0; i < ((arg.getX * arg.getY)/3); ++i)
-        arg.p[(rand() % arg.getY)][(rand() % arg.getX)].setB(true);
+    for(int i = 0; i < ((arg.getX() * arg.getY())/3); ++i)
+        arg.getP()[rand() % arg.getY()][rand() % arg.getX()].setB(true);
     cout << arg;
 }
 
