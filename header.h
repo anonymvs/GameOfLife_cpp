@@ -29,11 +29,12 @@ void random(Field&);
 //betöltés
 void loadf();
 //algorithm.cpp
-void startf();
+void startf(Field&);
 void quitf();
 
 ///GLOBÁLIS FÜGGVÉNYEK
 int beolv();
 void kiir(const Field& f);
+int db(const Field &f);
 
 #endif // HEADER_H_INCLUDED

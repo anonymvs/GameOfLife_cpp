@@ -99,6 +99,8 @@ void basef(Field &baseField) {
     } else {
         random(baseField);
     }
+    clrscr();
+    cout << "On altal valasztott jatekter:" << endl << baseField << endl;
 }
 
 void manual(Field &arg) {
@@ -132,7 +134,6 @@ void random(Field &arg) {
     rand();
     for(int i = 0; i < ((arg.getX() * arg.getY())/3); ++i)
         arg.getP()[rand() % arg.getY()][rand() % arg.getX()].setB(true);
-    cout << arg;
 }
 
 void loadf() {
