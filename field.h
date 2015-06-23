@@ -12,6 +12,8 @@ public:
     void setX(int a);
     void setY(int a);
     void setB(bool x);
+    int getX();
+    int getY();
     bool getB();
     Cell& operator=(const Cell&);
 };

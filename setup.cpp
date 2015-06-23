@@ -64,6 +64,7 @@ void kiir(Field& f) {
         }
         cout << endl;
     }
+    cout << endl;
 }
 //terület beállítása
 Field& areaf() {

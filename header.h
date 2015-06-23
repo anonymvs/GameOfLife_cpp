@@ -31,6 +31,12 @@ void loadf();
 //algorithm.cpp
 void startf(Field&);
 void quitf();
+Cell* makeList(Field &arg);
+Cell* death(Cell *list, Field &arg);
+void born(Field &baseField);
+void kill(Cell *list, Field &arg);
+int db(Field &f);
+Cell* listAdd(Cell* lista, int meret, Cell sejt);
 
 ///GLOBÁLIS FÜGGVÉNYEK
 int beolv();

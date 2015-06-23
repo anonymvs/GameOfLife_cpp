@@ -39,7 +39,7 @@ void mainMenu() {
                 getline(cin, x);
                 break;
             case(start):
-                startf();
+                startf(baseField);
                 getline(cin, x);
                 break;
             case(quit):
@@ -54,7 +54,7 @@ void menu_text(char c) {
     main_menu state = main_menu(c);
     switch (state) {
       case(full):
-        cout << "--- MENU ---" << endl;
+        cout << endl << "--- MENU ---" << endl;
         cout << ":: Kerem irja be az on altal valasztott menupont szamat ::" << endl;
         cout << "1 - Jatekter meretenek megadasa" << endl;
         cout << "2 - Kezdo koordinatak leosztasa" << endl;
@@ -63,14 +63,14 @@ void menu_text(char c) {
         cout << "5 - Kilepes" << endl;
         break;
       case (area):
-        cout << "--- MENU ---" << endl;
+        cout << endl << "--- MENU ---" << endl;
         cout << ":: Kerem irja be az on altal valasztott menupont szamat ::" << endl;
         cout << "2 - Kezdo koordinatak leosztasa" << endl;
         cout << "4 - Szimulacio inditasa" << endl;
         cout << "5 - Kilepes" << endl;
         break;
       case (base):
-        cout << "--- MENU ---" << endl;
+        cout << endl << "--- MENU ---" << endl;
         cout << ":: Kerem irja be az on altal valasztott menupont szamat ::" << endl;
         cout << "4 - Szimulacio inditasa" << endl;
         cout << "5 - Kilepes" << endl;

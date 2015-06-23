@@ -28,6 +28,14 @@ void Cell::setB(bool x) {
     b = x;
 }
 
+int Cell::getX() {
+    return x;
+}
+
+int Cell::getY() {
+    return y;
+}
+
 //Field functions
 Field::Field(int a, int b) : x(a), y(b) {
     //std::cout << "Field ctor" << std::endl;
