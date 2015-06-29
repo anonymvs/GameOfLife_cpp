@@ -25,7 +25,7 @@ void Cell::setY(int a) {
     y = a;
 }
 void Cell::setB(bool x) {
-    b = x;
+    this->b = x;
 }
 
 int Cell::getX() {
@@ -55,6 +55,7 @@ Field::Field(const Field &arg) {
     //std::cout << "Field copy ctor" << std::endl;
     this->x = arg.x;
     this->y = arg.y;
+
     Cell** ptr = new Cell*[arg.y];
     for (int i = 0; i < arg.y; ++i) {
         ptr[i] = new Cell[arg.x];
@@ -80,7 +81,7 @@ int Field::getX() {
 }
 
 Cell** Field::getP() {
-    return p;
+    return this->p;
 }
 int Field::getY() {
     return y;
@@ -88,17 +89,18 @@ int Field::getY() {
 
 
 Field& Field::operator=(const Field &arg) {
-    this->x = arg.x;
-    this->y = arg.y;
 
     //std::cout << "Field eq operator" << std::endl;
 
-    if(this->p != NULL) {
+    if(this->p != NULL || (this->x != 0 || this->y != 0)) {
         for (int i = 0; i < this->y; ++i) {
             delete [] this->p[i];
         }
         delete [] this->p;
     }
+
+    this->x = arg.x;
+    this->y = arg.y;
 
     Cell** ptr = new Cell*[this->y];
     for (int i = 0; i < this->y; ++i) {

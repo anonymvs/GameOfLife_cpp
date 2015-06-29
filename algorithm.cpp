@@ -1,29 +1,41 @@
 #include <iostream>
+#include <cstdlib>
 #include "header.h"
 #include "field.h"
 
 using namespace std;
 
-int cntr = 0;
+int endCntr = 0;
 
-void startf(Field &baseField) {
-    clrscr();
+void startf(Field &baseField, int barrier) {
     cout << baseField;
-    cntr++;
-    Cell *alive = makeList(baseField);
-    Cell *deathList = death(alive, baseField);
+    clrscr();
+    endCntr++;
+    Cell *deathList = makeList(baseField);
+    death(deathList, baseField);
     born(baseField);
     kill(deathList, baseField);
+    //cout << baseField;
+    if(endCntr == barrier || db(baseField) == 0) {
+        cout << baseField;
+        return;
+    } else {
+        startf(baseField, barrier);
+    }
 }
+
 Cell* makeList(Field &arg) {
     int n = db(arg);
     Cell *l = new Cell[n];
+    int k = 0;
     for (int i = 0; i < arg.getY(); ++i) {
         for (int j = 0; j < arg.getX(); ++j) {
-            l[n].setX(j);
-            l[n].setY(i);
-            l[n].setB(true);
-            n++;
+            if(arg.getP()[i][j].getB() == 1) {
+                l[k].setX(j);
+                l[k].setY(i);
+                l[k].setB(true);
+                k++;
+            }
         }
     }
     return l;
@@ -41,10 +53,9 @@ int db(Field &f) {
     return db;
 }
 
-Cell* death(Cell *l, Field &arg) {
+void death(Cell *l, Field &arg) {
     int n = db(arg);
     int Cellcntr;
-    Cell* deathList;
     if (l == NULL)
         throw "Nincs elo sejt!";
     int meret = 0;
@@ -58,28 +69,40 @@ Cell* death(Cell *l, Field &arg) {
                     Cellcntr++;
             }
             //itt már megvan hány szomszéd van
-            if((Cellcntr - 1) < 2 || (Cellcntr - 1) < 3)
+            if((Cellcntr - 1) < 2 || (Cellcntr - 1) < 3) {
                 meret++;
-                deathList = listAdd(deathList, meret, l[i]);
+                l[i].setB(false);
+            }
         }
     }
-    return deathList;
-}
-
-Cell* listAdd(Cell* lista, int meret, Cell sejt) {
-    Cell* uj = new Cell[meret];
-    for(int i = 0; i < meret - 1; i++) {
-        uj[i] = lista[i];
-    }
-    uj[meret] = sejt;
-    delete lista;
-    return uj;
 }
 
 void born(Field &baseField) {
-
+    for(int i = 0; i < baseField.getY(); ++i) {
+        for(int j = 0; j < baseField.getX(); ++j) {
+            if( i == 0 || j == 0 || i ==  (baseField.getY()-1) || j == (baseField.getX()-1) ) {
+                baseField.getP()[i][j].setB(false);
+            } else {
+                int cntr = 0;
+                for(int y = i - 1; y < i + 2; ++y){
+                    for(int x = j - 1; x < j + 2; ++x) {
+                        if(baseField.getP()[y][x].getB() == 1)
+                            cntr++;
+                    }
+                }
+                if(cntr == 3)
+                    baseField.getP()[i][j].setB(true);
+            }
+        }
+    }
 }
 
-void kill(Cell *list, Field &arg) {
-
+void kill(Cell *l, Field &arg) {
+    for(int i = 0; i < db(arg); ++i) {
+        if(l[i].getB() == 0) {
+            arg.getP()[l[i].getY()][l[i].getX()].setB(false);
+        }
+    }
 }
+
+

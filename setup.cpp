@@ -70,7 +70,7 @@ void kiir(Field& f) {
 Field& areaf() {
     clrscr();
     cout << "Mekkora legyen a palya terulete?" << endl;
-    cout << "Szelesseg: ";
+    cout << "Maximalis szelesseg: 71" << endl << "Szelesseg: ";
     int x = beolv();
     cout << "Magassag: ";
     int y = beolv();

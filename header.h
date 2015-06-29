@@ -29,14 +29,13 @@ void random(Field&);
 //betöltés
 void loadf();
 //algorithm.cpp
-void startf(Field&);
+void startf(Field& baseField, int barrier);
 void quitf();
 Cell* makeList(Field &arg);
-Cell* death(Cell *list, Field &arg);
+void death(Cell *l, Field &arg);
 void born(Field &baseField);
-void kill(Cell *list, Field &arg);
+void kill(Cell *l, Field &arg);
 int db(Field &f);
-Cell* listAdd(Cell* lista, int meret, Cell sejt);
 
 ///GLOBÁLIS FÜGGVÉNYEK
 int beolv();
